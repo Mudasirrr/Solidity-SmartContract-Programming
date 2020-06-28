@@ -1,0 +1,118 @@
+
+Solidity supports String literal using both double quote (") and single quote ('). It provides string as a data type to declare a variable of type String.
+
+pragma solidity ^0.5.0;
+
+contract SolidityTest {
+   string data = "test";
+}
+In above example, "test" is a string literal and data is a string variable. More preferred way is to use byte types instead of String as string operation requires more gas as compared to byte operation. Solidity provides inbuilt conversion between bytes to string and vice versa. In Solidity we can assign String literal to a byte32 type variable easily. Solidity considers it as a byte32 literal.
+
+pragma solidity ^0.5.0;
+
+contract SolidityTest {
+   bytes32 data = "test";
+}
+Escape Characters
+Sr.No.	Character & Description
+1	
+\n
+
+Starts a new line.
+
+2	
+\\
+
+Backslash
+
+3	
+\'
+
+Single Quote
+
+4	
+\"
+
+Double Quote
+
+5	
+\b
+
+Backspace
+
+6	
+\f
+
+Form Feed
+
+7	
+\r
+
+Carriage Return
+
+8	
+\t
+
+Tab
+
+9	
+\v
+
+Vertical Tab
+
+10	
+\xNN
+
+Represents Hex value and inserts appropriate bytes.
+
+11	
+\uNNNN
+
+Represents Unicode value and inserts UTF-8 sequence.
+
+Bytes to String Conversion
+Bytes can be converted to String using string() constructor.
+
+bytes memory bstr = new bytes(10);
+string message = string(bstr);   
+Example
+Try the following code to understand how the string works in Solidity.
+
+pragma solidity ^0.5.0;
+
+contract SolidityTest {   
+   constructor() public{       
+   }
+   function getResult() public view returns(string memory){
+      uint a = 1; 
+      uint b = 2;
+      uint result = a + b;
+      return integerToString(result); 
+   }
+   function integerToString(uint _i) internal pure 
+      returns (string memory) {
+      
+      if (_i == 0) {
+         return "0";
+      }
+      uint j = _i;
+      uint len;
+      
+      while (j != 0) {
+         len++;
+         j /= 10;
+      }
+      bytes memory bstr = new bytes(len);
+      uint k = len - 1;
+      
+      while (_i != 0) {
+         bstr[k--] = byte(uint8(48 + _i % 10));
+         _i /= 10;
+      }
+      return string(bstr);
+   }
+}
+Run the above program using steps provided in Solidity First Application chapter.
+
+Output
+0: string: 3

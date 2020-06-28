@@ -1,0 +1,41 @@
+Mapping is a reference type as arrays and structs. Following is the syntax to declare a mapping type.
+
+mapping(_KeyType => _ValueType)
+Where
+
+_KeyType − can be any built-in types plus bytes and string. No reference type or complex objects are allowed.
+
+_ValueType − can be any type.
+
+Considerations
+Mapping can only have type of storage and are generally used for state variables.
+
+Mapping can be marked public. Solidity automatically create getter for it.
+
+Example
+Try the following code to understand how the mapping type works in Solidity.
+
+pragma solidity ^0.5.0;
+
+contract LedgerBalance {
+   mapping(address => uint) public balances;
+
+   function updateBalance(uint newBalance) public {
+      balances[msg.sender] = newBalance;
+   }
+}
+contract Updater {
+   function updateBalance() public returns (uint) {
+      LedgerBalance ledgerBalance = new LedgerBalance();
+      ledgerBalance.updateBalance(10);
+      return ledgerBalance.balances(address(this));
+   }
+}
+Run the above program using steps provided in Solidity First Application chapter.
+
+First Click updateBalance Button to set the value as 10 then look into the logs which will show the decoded output as −
+
+Output
+{
+   "0": "uint256: 10"
+}

@@ -1,0 +1,48 @@
+Array is a data structure, which stores a fixed-size sequential collection of elements of the same type. An array is used to store a collection of data, but it is often more useful to think of an array as a collection of variables of the same type.
+
+Instead of declaring individual variables, such as number0, number1, ..., and number99, you declare one array variable such as numbers and use numbers[0], numbers[1], and ..., numbers[99] to represent individual variables. A specific element in an array is accessed by an index.
+
+In Solidity, an array can be of compile-time fixed size or of dynamic size. For storage array, it can have different types of elements as well. In case of memory array, element type can not be mapping and in case it is to be used as function parameter then element type should be an ABI type.
+
+All arrays consist of contiguous memory locations. The lowest address corresponds to the first element and the highest address to the last element.
+
+Declaring Arrays
+To declare an array of fixed size in Solidity, the programmer specifies the type of the elements and the number of elements required by an array as follows −
+
+type arrayName [ arraySize ];
+This is called a single-dimension array. The arraySize must be an integer constant greater than zero and type can be any valid Solidity data type. For example, to declare a 10-element array called balance of type uint, use this statement −
+
+uint balance[10];
+To declare an array of dynamic size in Solidity, the programmer specifies the type of the elements as follows −
+
+type[] arrayName;
+Initializing Arrays
+You can initialize Solidity array elements either one by one or using a single statement as follows −
+
+uint balance[3] = [1, 2, 3];
+The number of values between braces [ ] can not be larger than the number of elements that we declare for the array between square brackets [ ]. Following is an example to assign a single element of the array −
+
+If you omit the size of the array, an array just big enough to hold the initialization is created. Therefore, if you write −
+
+uint balance[] = [1, 2, 3];
+You will create exactly the same array as you did in the previous example.
+
+balance[2] = 5;
+The above statement assigns element number 3rd in the array a value of 5.
+
+Creating dynamic memory arrays
+Dynamic memory arrays are created using new keyword.
+
+uint size = 3;
+uint balance[] = new uint[](size);
+Accessing Array Elements
+An element is accessed by indexing the array name. This is done by placing the index of the element within square brackets after the name of the array. For example −
+
+uint salary = balance[2];
+The above statement will take 3rd element from the array and assign the value to salary variable. Following is an example, which will use all the above-mentioned three concepts viz. declaration, assignment and accessing arrays −
+
+Members
+length − length returns the size of the array. length can be used to change the size of dynamic array be setting it.
+
+push − push allows to append an element to a dynamic storage array at the end. It returns the new length of the array.
+

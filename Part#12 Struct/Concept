@@ -1,0 +1,50 @@
+Struct types are used to represent a record. Suppose you want to keep track of your books in a library. You might want to track the following attributes about each book −
+
+Title
+Author
+Subject
+Book ID
+
+Defining a Struct
+To define a Struct, you must use the struct keyword. The struct keyword defines a new data type, with more than one member. The format of the struct statement is as follows −
+
+struct struct_name { 
+   type1 type_name_1;
+   type2 type_name_2;
+   type3 type_name_3;
+}
+Example
+struct Book { 
+   string title;
+   string author;
+   uint book_id;
+}
+Accessing a Struct and its variable
+To access any member of a structure, we use the member access operator (.). The member access operator is coded as a period between the structure variable name and the structure member that we wish to access. You would use the struct to define variables of structure type. The following example shows how to use a structure in a program.
+
+Example
+Try the following code to understand how the structs works in Solidity.
+
+pragma solidity ^0.5.0;
+
+contract test {
+   struct Book { 
+      string title;
+      string author;
+      uint book_id;
+   }
+   Book book;
+
+   function setBook() public {
+      book = Book('Learn Java', 'TP', 1);
+   }
+   function getBookId() public view returns (uint) {
+      return book.book_id;
+   }
+}
+Run the above program using steps provided in Solidity First Application chapter.
+
+First Click setBook Button to set the value as LARGE then click getBookId to get the selected book id.
+
+Output
+uint256: 1

@@ -1,7 +1,24 @@
-// Scope of local variables is limited to function in which they are defined but State variables can have three types of scopes.
+While writing a contract, you may encounter a situation where you need to perform an action over and over again. In such situations, you would need to write loop statements to reduce the number of lines.
 
-// Public − Public state variables can be accessed internally as well as via messages. For a public state variable, an automatic getter function is generated.
+Solidity supports all the necessary loops to ease down the pressure of programming.
 
-// Internal − Internal state variables can be accessed only internally from the current contract or contract deriving from it without using this.
+Sr.No	Loops & Description
+1	
+While Loop
 
-// Private − Private state variables can be accessed only internally from the current contract they are defined not in the derived contract from it.
+The most basic loop in Solidity is the while loop which would be discussed in this chapter.
+
+2	
+do...while Loop
+
+The do...while loop is similar to the while loop except that the condition check happens at the end of the loop.
+
+3	
+For Loop
+
+The for loop is the most compact form of looping. It includes the following three important parts.
+
+4	
+Loop Control
+
+Solidity provides full control to handle loops and switch statements.
